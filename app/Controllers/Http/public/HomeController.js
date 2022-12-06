@@ -7,6 +7,7 @@ class HomeController {
     async index ({request, view}) {
         const ip = request.ip()
         const userAgent = request.header('user-agent')
+        
         const visitor = await Visitor.query().where( w => {
             w.where('ip', ip)
             w.where('date', moment().format('YYYY-MM-DD'))
