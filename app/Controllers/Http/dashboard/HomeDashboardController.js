@@ -2,7 +2,7 @@
 
 class HomeDashboardController {
     async index ({auth, view}) {
-        console.log(auth);
+        // console.log(auth);
         const user = await userValidate(auth)
         if(!user){
             return view.render('login')
