@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- Bootstrap Core CSS -->
+	{{ style('bootstrap/dist/css/bootstrap.min') }}
+    <!-- Menu CSS -->
+	{{ style('plugins/bower_components/sidebar-nav/dist/sidebar-nav.min') }}
+    <!-- toast CSS -->
+	{{ style('plugins/bower_components/toast-master/css/jquery.toast') }}
+    <!-- morris CSS -->
+	{{ style('plugins/bower_components/morrisjs/morris') }}
+    <!-- chartist CSS -->
+	{{ style('plugins/bower_components/chartist-js/dist/chartist.min') }}
+	{{ style('plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip') }}
+    <!-- Calendar CSS -->
+	{{ style('plugins/bower_components/calendar/dist/fullcalendar') }}
+    <!-- animation CSS -->
+	{{ style('css/animate') }}
+    <!-- Custom CSS -->
+	{{ style('css/style') }}
+    <!-- color CSS -->
+	{{ style('css/colors/default') }}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        @include('template.header-navbar')
+        <!-- End Top Navigation -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        @include('template.sidebar-menu')
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            @!section('content-body')
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by themedesigner.in </footer>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+	{{ script('plugins/bower_components/jquery/dist/jquery.min') }}
+    <!-- Bootstrap Core JavaScript -->
+	{{ script('bootstrap/dist/js/bootstrap.min') }}
+    <!-- Menu Plugin JavaScript -->
+	{{ script('plugins/bower_components/sidebar-nav/dist/sidebar-nav.min') }}
+    <!--slimscroll JavaScript -->
+	{{ script('js/jquery.slimscroll') }}
+    <!--Wave Effects -->
+	{{ script('js/waves') }}
+    <!--Counter js -->
+	{{ script('plugins/bower_components/waypoints/lib/jquery.waypoints') }}
+	{{ script('plugins/bower_components/counterup/jquery.counterup.min') }}
+    <!-- chartist chart -->
+	{{ script('plugins/bower_components/chartist-js/dist/chartist.min') }}
+	{{ script('plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min') }}
+    <!-- Sparkline chart JavaScript -->
+	{{ script('plugins/bower_components/jquery-sparkline/jquery.sparkline.min') }}
+    <!-- Custom Theme JavaScript -->
+	{{ script('js/custom.min') }}
+	{{ script('js/dashboard1') }}
+	{{ script('plugins/bower_components/toast-master/js/jquery.toast') }}
+    <!--Style Switcher -->
+	{{ script('plugins/bower_components/styleswitcher/jQuery.style.switcher') }}
+</body>
+
+</html>
+
+
