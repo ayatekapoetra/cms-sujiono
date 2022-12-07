@@ -7,7 +7,7 @@ class HomeController {
     async index ({request, view}) {
         const ip = request.ip()
         const userAgent = request.header('user-agent')
-        
+
         const visitor = await Visitor.query().where( w => {
             w.where('ip', ip)
             w.where('date', moment().format('YYYY-MM-DD'))
@@ -29,6 +29,22 @@ class HomeController {
 
     async testimonial ({view}) {
         return view.render('pages.testimonial')
+    }
+
+    async service ({view}) {
+        return view.render('pages.service')
+    }
+
+    async serviceDetail ({view}) {
+        return view.render('pages.service-detail')
+    }
+
+    async blog ({view}) {
+        return view.render('pages.blog')
+    }
+
+    async blogDetail ({view}) {
+        return view.render('pages.blog-detail')
     }
 }
 

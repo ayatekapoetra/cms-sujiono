@@ -26,6 +26,10 @@ Route.group(() => {
     Route.get('/', 'HomeController.index').as('home-guest')
     Route.get('/about', 'HomeController.about').as('about-guest')
     Route.get('/testimonial', 'HomeController.testimonial').as('testimonial-guest')
+    Route.get('/service', 'HomeController.service').as('service-guest')
+    Route.get('/service-detail', 'HomeController.serviceDetail').as('serviceDetail-guest')
+    Route.get('/blog', 'HomeController.blog').as('blog-guest')
+    Route.get('/blog-detail', 'HomeController.blogDetail').as('blogDetail-guest')
 }).namespace('public')
 
 Route.group(() => {
