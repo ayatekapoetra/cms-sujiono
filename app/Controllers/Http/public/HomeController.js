@@ -43,8 +43,12 @@ class HomeController {
         return view.render('pages.blog')
     }
 
-    async blogDetail ({view}) {
+    async blogDetail ({view, params}) {
         return view.render('pages.blog-detail')
+    }
+
+    async contact ({view}) {
+        return view.render('pages.contact')
     }
 }
 

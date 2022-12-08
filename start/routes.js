@@ -30,6 +30,7 @@ Route.group(() => {
     Route.get('/service-detail', 'HomeController.serviceDetail').as('serviceDetail-guest')
     Route.get('/blog', 'HomeController.blog').as('blog-guest')
     Route.get('/blog-detail', 'HomeController.blogDetail').as('blogDetail-guest')
+    Route.get('/contact-us', 'HomeController.contact').as('contact-guest')
 }).namespace('public')
 
 Route.group(() => {
