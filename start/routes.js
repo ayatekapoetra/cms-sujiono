@@ -35,7 +35,11 @@ Route.group(() => {
 
 Route.group(() => {
     Route.get('/', 'HomeDashboardController.index').as('dashboard')
+
     Route.get('/gallery', 'GalleryDashboardController.index').as('gallery')
     Route.get('/gallery-create', 'GalleryDashboardController.create').as('gallery-create')
     Route.post('/gallery-create', 'GalleryDashboardController.store').as('gallery-store')
+
+    Route.get('/blog', 'BlogDashboardController.index').as('blog')
+    Route.get('/blog-create', 'BlogDashboardController.create').as('blog-create')
 }).prefix('dashboard').namespace('dashboard').middleware(['gp'])
