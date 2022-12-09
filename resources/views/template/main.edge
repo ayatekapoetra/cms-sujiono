@@ -22,6 +22,8 @@
 	{{ style('plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip') }}
     <!-- Calendar CSS -->
 	{{ style('plugins/bower_components/calendar/dist/fullcalendar') }}
+    <!-- SweetAlert CSS -->
+    {{ style('plugins/bower_components/sweetalert/sweetalert') }}
     <!-- animation CSS -->
 	{{ style('css/animate') }}
     <!-- Custom CSS -->
@@ -34,6 +36,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    {{ script('plugins/bower_components/jquery/dist/jquery.min') }}
 </head>
 
 <body class="fix-header">
@@ -79,7 +82,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-	{{ script('plugins/bower_components/jquery/dist/jquery.min') }}
+	
     <!-- Bootstrap Core JavaScript -->
 	{{ script('bootstrap/dist/js/bootstrap.min') }}
     <!-- Menu Plugin JavaScript -->
@@ -102,6 +105,8 @@
 	{{ script('plugins/bower_components/toast-master/js/jquery.toast') }}
     <!--Style Switcher -->
 	{{ script('plugins/bower_components/styleswitcher/jQuery.style.switcher') }}
+    <!-- SweetAlert JS -->
+    {{ script('plugins/bower_components/sweetalert/sweetalert.min') }}
 </body>
 
 </html>
