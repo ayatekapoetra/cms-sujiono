@@ -1,0 +1,40 @@
+@layout('template.main')
+@section('content-body')
+    <!-- Dashboard content -->
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Home Dashboard</h4> </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                &nbsp;
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="white-box">
+                <div class="row">
+                    <form action="/dashboard/hiring" method="post">
+                        {{ csrfField() }}
+                        <div class="col-md-12">
+                            <textarea class="form-control textarea" name="teks" rows="10">{{data.teks}}</textarea>
+                        </div>
+                        <div class="col-md-12 m-t-10 text-right">
+                            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                            <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(function(){
+        $('.textarea').wysihtml5();
+    })
+</script>
+@endsection

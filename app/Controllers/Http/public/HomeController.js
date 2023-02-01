@@ -1,6 +1,7 @@
 'use strict'
 
 const Visitor = use("App/Models/Visitor")
+const ContentHiring = use("App/Models/ContentHiring")
 const moment = use('moment')
 
 class HomeController {
@@ -49,6 +50,11 @@ class HomeController {
 
     async contact ({view}) {
         return view.render('pages.contact')
+    }
+
+    async joinUs ({view}) {
+        const contentHiring = (await ContentHiring.query().where('aktif', 'Y').last()).toJSON()
+        return view.render('pages.join-us', {data: contentHiring})
     }
 }
 

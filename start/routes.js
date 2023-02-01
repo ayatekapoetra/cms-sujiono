@@ -31,6 +31,7 @@ Route.group(() => {
     Route.get('/blog', 'HomeController.blog').as('blog-guest')
     Route.get('/blog-detail', 'HomeController.blogDetail').as('blogDetail-guest')
     Route.get('/contact-us', 'HomeController.contact').as('contact-guest')
+    Route.get('/join-us', 'HomeController.joinUs').as('career-guest')
 }).namespace('public')
 
 Route.group(() => {
@@ -42,4 +43,7 @@ Route.group(() => {
 
     Route.get('/blog', 'BlogDashboardController.index').as('blog')
     Route.get('/blog-create', 'BlogDashboardController.create').as('blog-create')
+
+    Route.get('/hiring', 'HiringDashboardController.index').as('hiring')
+    Route.post('/hiring', 'HiringDashboardController.store').as('content-hiring-post')
 }).prefix('dashboard').namespace('dashboard').middleware(['gp'])

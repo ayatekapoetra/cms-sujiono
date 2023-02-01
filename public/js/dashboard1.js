@@ -1,15 +1,15 @@
  $(document).ready(function () {
      "use strict";
      // toat popup js
-     $.toast({
-         heading: 'Welcome BPD Sangatta',
-         text: 'System Informasi Kepegawaian Badan Pendapatan Daerah Kutai Timur.',
-         position: 'top-right',
-         loaderBg: '#fff',
-         icon: 'warning',
-         hideAfter: 3500,
-         stack: 6
-     })
+    //  $.toast({
+    //      heading: 'Welcome BPD Sangatta',
+    //      text: 'System Informasi Kepegawaian Badan Pendapatan Daerah Kutai Timur.',
+    //      position: 'top-right',
+    //      loaderBg: '#fff',
+    //      icon: 'warning',
+    //      hideAfter: 3500,
+    //      stack: 6
+    //  })
 
 
      //ct-visits
