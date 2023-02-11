@@ -21,32 +21,36 @@
                             <ol class="breadcrumb">
                                 <li><a href="/dashboard">Home</a></li>
                                 <li><a href="/dashboard/blog">Blog</a></li>
-                                <li class="active">Create</li>
+                                <li class="active">Update</li>
                             </ol>
-                            <form id="form-create">
+                            <form id="form-update" data-id="{{data.id}}">
                                 {{ csrfField() }}
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Title Blog</label>
-                                            <input type="text" class="form-control" name="title" placeholder="Input title disini..." required> 
+                                            <input type="text" class="form-control" name="title" placeholder="Input title disini..." value="{{data.title}}" required> 
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="" for="example-email">Narasi Blog</label>
-                                            <textarea name="narasi" class="form-control" rows="10"></textarea>
+                                            <textarea name="narasi" class="form-control" rows="20">{{data.narasi}}</textarea>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
+                                    <div class="col-md-4">
+                                        <label class="">Photo</label>
+                                        <img src="{{ assetsUrl(data.images) }}" alt="..." class="img-responsive"> <br>
                                         <div class="form-group">
                                             <label>Upload Photo Blog</label>
                                             <input type="file" name="photo" class="form-control"> 
                                         </div>
                                     </div>
+                                    </div>
                                     <div class="col-md-12">
+                                        <button type="button" class="btn btn-success waves-effect waves-light m-r-10" id="bt-delete" data-id="{{data.id}}">Hapus</button>
                                         <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-                                        <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                                        <button type="button" class="btn btn-inverse waves-effect waves-light">Cancel</button>
                                     </div>
                                 </div>
                             </form>
@@ -61,13 +65,14 @@
 
             $('textarea[name="narasi"]').wysihtml5();
 
-            $('form#form-create').on('submit', function(e){
+            $('form#form-update').on('submit', function(e){
                 e.preventDefault()
+                var id = $(this).data('id')
                 var data = new FormData(this)
                 $.ajax({
                     async: true,
                     headers: {'x-csrf-token': $('[name=_csrf]').val()},
-                    url: '/dashboard/blog',
+                    url: '/dashboard/blog/'+id+'/update',
                     method: 'POST',
                     data: data,
                     dataType: 'json',
@@ -79,6 +84,34 @@
                         if(result.success){
                             swal('Okey', result.message, 'success')
                             window.location.reload()
+                        }else{
+                            swal('Opps', result.message, 'warning')
+                        }
+                    },
+                    error: function(err){
+                        console.log(err)
+                        swal('Opps', 'err', 'warning')
+                    }
+                })
+            })
+
+            $('button#bt-delete').on('click', function(e){
+                e.preventDefault()
+                var id = $(this).data('id')
+                $.ajax({
+                    async: true,
+                    headers: {'x-csrf-token': $('[name=_csrf]').val()},
+                    url: '/dashboard/blog/'+id+'/destroy',
+                    method: 'POST',
+                    dataType: 'json',
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    success: function(result){
+                        console.log(result);
+                        if(result.success){
+                            swal('Okey', result.message, 'success')
+                            history.back()
                         }else{
                             swal('Opps', result.message, 'warning')
                         }

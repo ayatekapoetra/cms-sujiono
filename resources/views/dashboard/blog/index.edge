@@ -21,7 +21,7 @@
                     <div class="col-md-12">
                         <div class="row el-element-overlay m-b-40">
                             <div class="col-md-12">
-                                <a href="/dashboard/blog-create" class="btn btn-inverse waves-effect waves-light" type="button">
+                                <a href="/dashboard/blog/create" class="btn btn-inverse waves-effect waves-light" type="button">
                                     <span class="btn-label"><i class="fa fa-plus"></i></span> Tambah Blog
                                 </a>
                                 <hr>
@@ -38,20 +38,25 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Title</th>
-                                                    <th>Narasi</th>
-                                                    <th>Kategori</th>
-                                                    <th>Photo</th>
+                                                    <th width="*">Narasi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td class="txt-oflo">Elite admin</td>
-                                                    <td><span class="label label-success label-rouded">SALE</span> </td>
-                                                    <td class="txt-oflo">April 18, 2017</td>
-                                                    <td><span class="text-success">$24</span></td>
-                                                </tr>
+                                                @each(item in list)
+                                                    <tr>
+                                                        <td>{{$loop.index + 1}}</td>
+                                                        <td class="txt-oflo">
+                                                            <img src="{{ assetsUrl(item.images) }}" alt="..." class="img-rounded" width="200"> <br>
+                                                            <strong>{{item.title}}</strong> <small>[ {{item.date}} ] </small><br>
+                                                            <small>{{{item.narasi}}}</small>
+                                                            <p>
+                                                                <a href="/dashboard/blog/{{item.id}}/show" class="btn btn-warning"><i class="fa fa-edit"></i> Sunting</a>
+                                                                {{--  <a href="/dashboard/blog/{{item.id}}/destroy" class="btn btn-danger btn-xs"><i class="fa fa-close"></i> Hapus</a>  --}}
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                  
+                                                @endeach
                                             </tbody>
                                         </table>
                                     </div>

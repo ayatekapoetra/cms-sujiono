@@ -29,7 +29,7 @@ Route.group(() => {
     Route.get('/service', 'HomeController.service').as('service-guest')
     Route.get('/service-detail', 'HomeController.serviceDetail').as('serviceDetail-guest')
     Route.get('/blog', 'HomeController.blog').as('blog-guest')
-    Route.get('/blog-detail', 'HomeController.blogDetail').as('blogDetail-guest')
+    Route.get('/blog-detail/:id', 'HomeController.blogDetail').as('blogDetail-guest')
     Route.get('/contact-us', 'HomeController.contact').as('contact-guest')
     Route.get('/join-us', 'HomeController.joinUs').as('career-guest')
 }).namespace('public')
@@ -42,7 +42,11 @@ Route.group(() => {
     Route.post('/gallery-create', 'GalleryDashboardController.store').as('gallery-store')
 
     Route.get('/blog', 'BlogDashboardController.index').as('blog')
-    Route.get('/blog-create', 'BlogDashboardController.create').as('blog-create')
+    Route.post('/blog', 'BlogDashboardController.store').as('blog-store')
+    Route.get('/blog/create', 'BlogDashboardController.create').as('blog-create')
+    Route.get('/blog/:id/show', 'BlogDashboardController.show').as('blog-show')
+    Route.post('/blog/:id/update', 'BlogDashboardController.update').as('blog-update')
+    Route.post('/blog/:id/destroy', 'BlogDashboardController.destroy').as('blog-destroy')
 
     Route.get('/hiring', 'HiringDashboardController.index').as('hiring')
     Route.post('/hiring', 'HiringDashboardController.store').as('content-hiring-post')

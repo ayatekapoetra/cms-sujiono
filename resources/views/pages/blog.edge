@@ -19,131 +19,27 @@
 	<section class="blog-page-section">
 		<div class="container">
 			<div class="row clearfix">
-				
+				@each(item in list)
 				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<!-- <img src="images/resource/news-4.jpg" alt="" /> -->
-							<img src="https://pbs.twimg.com/media/E0PDOVaVIAc9pUG?format=jpg&name=small" alt="" />
-							<div class="overlay-box">
-								<a href="https://pbs.twimg.com/media/E0PDOVaVIAc9pUG?format=jpg&name=small" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
+					<div class="news-block col-lg-4 col-md-6 col-sm-12">
+						<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+							<div class="image">
+								<img src="{{ assetsUrl(item.images) }}" alt="" />
+								<div class="overlay-box">
+									<a href="{{ assetsUrl(item.images) }}" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
+								</div>
+							</div>
+							<div class="lower-content">
+								<ul class="post-meta">
+									<li><span class="fa fa-calendar"></span>{{item.date}}</li>
+									<li><span class="fa fa-user"></span>Admin</li>
+								</ul>
+								<h5><a href="/blog-detail/{{item.id}}">{{item.title}}</a></h5>
+								<a href="/blog-detail/{{item.id}}" class="theme-btn btn-style-three">View more</a>
 							</div>
 						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="fa fa-calendar"></span>April 30, 2021</li>
-								<li><span class="fa fa-user"></span>Admin</li>
-							</ul>
-							<h5><a href="blog-single.html">
-								PN Surabaya Kabulkan PKPU PT Magnesium Gosari International
-							</a></h5>
-							<a href="blog-single.html" class="theme-btn btn-style-three">View more</a>
-						</div>
 					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/news-5.jpg" alt="" />
-							<div class="overlay-box">
-								<a href="images/resource/news-5.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="fa fa-calendar"></span>September 12, 2019</li>
-								<li><span class="fa fa-user"></span>Admin</li>
-							</ul>
-							<h5><a href="blog-single.html">What we are capable of usually gets discovered.</a></h5>
-							<a href="blog-single.html" class="theme-btn btn-style-three">View more</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/news-6.jpg" alt="" />
-							<div class="overlay-box">
-								<a href="images/resource/news-6.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="fa fa-calendar"></span>September 12, 2019</li>
-								<li><span class="fa fa-user"></span>Admin</li>
-							</ul>
-							<h5><a href="blog-single.html">Food industry leaders often change their promoters.</a></h5>
-							<a href="blog-single.html" class="theme-btn btn-style-three">View more</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/news-7.jpg" alt="" />
-							<div class="overlay-box">
-								<a href="images/resource/news-7.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="fa fa-calendar"></span>September 12, 2019</li>
-								<li><span class="fa fa-user"></span>Admin</li>
-							</ul>
-							<h5><a href="blog-single.html">DiGENOVA: Chief judge state ment blatantly political.</a></h5>
-							<a href="blog-single.html" class="theme-btn btn-style-three">View more</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/news-8.jpg" alt="" />
-							<div class="overlay-box">
-								<a href="images/resource/news-8.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="fa fa-calendar"></span>September 12, 2019</li>
-								<li><span class="fa fa-user"></span>Admin</li>
-							</ul>
-							<h5><a href="blog-single.html">Thanksgiving-inspired cocktails that your guests.</a></h5>
-							<a href="blog-single.html" class="theme-btn btn-style-three">View more</a>
-						</div>
-					</div>
-				</div>
-				
-				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-						<div class="image">
-							<img src="images/resource/news-9.jpg" alt="" />
-							<div class="overlay-box">
-								<a href="images/resource/news-9.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
-							</div>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="fa fa-calendar"></span>September 12, 2019</li>
-								<li><span class="fa fa-user"></span>Admin</li>
-							</ul>
-							<h5><a href="blog-single.html">Dior call Jennifer campaign backlash 'not all justified'.</a></h5>
-							<a href="blog-single.html" class="theme-btn btn-style-three">View more</a>
-						</div>
-					</div>
-				</div>
-
-				
+				@endeach
 			</div>
 		</div>
 	</section>

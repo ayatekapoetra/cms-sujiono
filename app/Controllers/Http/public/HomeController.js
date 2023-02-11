@@ -1,6 +1,7 @@
 'use strict'
 
 const Visitor = use("App/Models/Visitor")
+const Blog = use("App/Models/Blog")
 const ContentHiring = use("App/Models/ContentHiring")
 const moment = use('moment')
 
@@ -41,11 +42,20 @@ class HomeController {
     }
 
     async blog ({view}) {
-        return view.render('pages.blog')
+        let blog = (await Blog.query().where('aktif', 'Y').fetch()).toJSON()
+        blog = blog.map(v => {
+            return {
+                ...v,
+                date: moment(v.date).format('DD MMMM YYYY')
+            }
+        })
+        return view.render('pages.blog', {list: blog})
     }
 
     async blogDetail ({view, params}) {
-        return view.render('pages.blog-detail')
+        let blog = (await Blog.query().where('id', params.id).last()).toJSON()
+        blog = {...blog, date: moment(blog.date).format('DD MMMM YYYY')}
+        return view.render('pages.blog-detail', {data: blog})
     }
 
     async contact ({view}) {
