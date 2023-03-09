@@ -30,6 +30,7 @@ Route.group(() => {
     Route.get('/service-detail', 'HomeController.serviceDetail').as('serviceDetail-guest')
     Route.get('/blog', 'HomeController.blog').as('blog-guest')
     Route.get('/blog-detail/:id', 'HomeController.blogDetail').as('blogDetail-guest')
+    Route.get('/news-detail/:id', 'HomeController.newsDetail').as('newsDetail-guest')
     Route.get('/contact-us', 'HomeController.contact').as('contact-guest')
     Route.get('/join-us', 'HomeController.joinUs').as('career-guest')
 }).namespace('public')
@@ -48,6 +49,14 @@ Route.group(() => {
     Route.post('/blog/:id/update', 'BlogDashboardController.update').as('blog-update')
     Route.post('/blog/:id/destroy', 'BlogDashboardController.destroy').as('blog-destroy')
 
+    Route.get('/news', 'NewsDashboardController.index').as('news')
+    Route.post('/news', 'NewsDashboardController.store').as('news-store')
+    Route.get('/news/create', 'NewsDashboardController.create').as('news-create')
+    Route.get('/news/:id/show', 'NewsDashboardController.show').as('news-show')
+    Route.post('/news/:id/update', 'NewsDashboardController.update').as('news-update')
+    Route.post('/news/:id/destroy', 'NewsDashboardController.destroy').as('news-destroy')
+
     Route.get('/hiring', 'HiringDashboardController.index').as('hiring')
     Route.post('/hiring', 'HiringDashboardController.store').as('content-hiring-post')
+
 }).prefix('dashboard').namespace('dashboard').middleware(['gp'])

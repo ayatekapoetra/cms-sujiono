@@ -5,35 +5,17 @@
 <section class="banner-section">
     <div class="main-slider-carousel owl-carousel owl-theme">
        <!-- Slide -->
-       <div class="slide" style="background-image:url(pages/images/main-slider/1.png)">
-          <div class="container">
-             <div class="content">
-                <div class="title">Introduce with SujionoLaw</div>
-                <h1>We are here to protect <br> any kind of <span>Violance</span></h1>
-                <a href="#" class="theme-btn btn-style-one">Contact us today</a>
-             </div>
-          </div>
-       </div>
-       <!-- Slide -->
-       <div class="slide" style="background-image:url(pages/images/main-slider/9.png)">
-          <div class="container">
-             <div class="content">
-                <div class="title">Introduce with SujionoLaw</div>
-                <h1>We fight all the way for the truth</h1>
-                <a href="#" class="theme-btn btn-style-one">Contact us today</a>
-             </div>
-          </div>
-       </div>
-       <!-- Slide -->
-       <div class="slide" style="background-image:url(pages/images/main-slider/8.png)">
-          <div class="container">
-             <div class="content">
-                <div class="title">Introduce with SujionoLaw</div>
-                <h1>we prepared to <br>oppose anyone <span>for you</span></h1>
-                <a href="#" class="theme-btn btn-style-one">Contact us today</a>
-             </div>
-          </div>
-       </div>
+       @each(v in slider)
+         <div class="slide" style="background-image:url({{v.photo}})">
+            <div class="container">
+               <div class="content">
+                  <div class="title">{{v.title}}</div>
+                  <h1>{{{v.subtitle}}}</h1>
+                  <a href="#" class="theme-btn btn-style-one">Contact us today</a>
+               </div>
+            </div>
+         </div>
+       @endeach
     </div>
 </section>
 <!--End Banner Section-->
@@ -44,47 +26,21 @@
    <div class="container">
       <div class="row clearfix">
          <!-- Services Block -->
-         <div class="services-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-               <div class="border-one"></div>
-               <div class="border-two"></div>
-               <div class="content">
-                  <div class="icon-box">
-                     <span class="icon flaticon-family"></span>
+         @each(v in serviceIco)
+            <div class="services-block col-lg-4 col-md-6 col-sm-12">
+               <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div class="border-one"></div>
+                  <div class="border-two"></div>
+                  <div class="content">
+                     <div class="icon-box">
+                        <span class="{{v.icon}}"></span>
+                     </div>
+                     <h6><a href="#">{{v.title}}</a></h6>
+                     <div class="text">{{v.subtitle}}</div>
                   </div>
-                  <h6><a href="services-detail.html">99% winning guarantee</a></h6>
-                  <div class="text">Dengan profesionalisme team kami akan menjamin kemenangan berada di pihak kami</div>
                </div>
             </div>
-         </div>
-         <!-- Services Block -->
-         <div class="services-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-               <div class="border-one"></div>
-               <div class="border-two"></div>
-               <div class="content">
-                  <div class="icon-box">
-                     <span class="icon flaticon-fingerprint-1"></span>
-                  </div>
-                  <h6><a href="services-detail.html">Care and Empathy</a></h6>
-                  <div class="text">Lorem ipsum dolor sit amet, con sectetu adipiscing elit, sed do eius mod tempor.</div>
-               </div>
-            </div>
-         </div>
-         <!-- Services Block -->
-         <div class="services-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-               <div class="border-one"></div>
-               <div class="border-two"></div>
-               <div class="content">
-                  <div class="icon-box">
-                     <span class="icon flaticon-non-stop-call"></span>
-                  </div>
-                  <h6><a href="services-detail.html">Strategic Thinking</a></h6>
-                  <div class="text">Masalah anda akan kami tangani case by case dengan startegi jitu dari team team yang berpengalaman</div>
-               </div>
-            </div>
-         </div>
+         @endeach
       </div>
    </div>
 </section>
@@ -92,7 +48,7 @@
 <!-- About Section -->
 <section class="about-section">
    <!-- Image Layer -->
-   <div class="image-layer" style="background-image:url(pages/images/resource/about-1.jpg)"></div>
+   <div class="image-layer" style="background-image:url({{aboutUs.photo}})"></div>
    <div class="container">
       <div class="row clearfix">
          <!-- Content Column -->
@@ -100,43 +56,19 @@
             <div class="inner-column">
                <!-- Sec Title -->
                <div class="section-title">
-                  <div class="title">about us</div>
-                  <h3>We are here to fight against any violance with <span>experience</span></h3>
+                  <div class="title">{{aboutUs.title}}</div>
+                  <h3>{{{aboutUs.subtitle}}}</h3>
                </div>
                <div class="text">
                   <p>
-                     Firma dalam tradisinya mempertahankan dan menghasilkan pengacara muda berbakat, yang dibangun dari pengalaman langsung mereka pada banyak aspek praktik hukum. SUJIONO & ASSOCIATES sebagai rumah bagi banyak pengacara muda yang berusaha untuk tumbuh menjadi firma hukum terkemuka tidak hanya di Indonesia tetapi juga di seluruh dunia
-
+                     {{{aboutUs.narasi}}}
                   </p>
                </div>
-               <!--
-               <div class="row clearfix">
-                  <div class="column col-lg-6 col-md-6 col-sm-12">
-                     <ul class="list-style-one">
-                        <li>Praesent feugiat sem mattis.</li>
-                     </ul>
-                  </div>
-                  <div class="column col-lg-6 col-md-6 col-sm-12">
-                     <ul class="list-style-one">
-                        <li>A wonderful serenity.</li>
-                     </ul>
-                  </div>
-                  <div class="column col-lg-6 col-md-6 col-sm-12">
-                     <ul class="list-style-one">
-                        <li>Premium services beyond you.</li>
-                     </ul>
-                  </div>
-                  <div class="column col-lg-6 col-md-6 col-sm-12">
-                     <ul class="list-style-one">
-                        <li>Set a link back to this photo.</li>
-                     </ul>
-                  </div>
-               </div>-->
-               <div class="question">Call to ask <a href="#">any question</a> <strong>0852 50000 236</strong></div>
+               <div class="question">{{{signature.narasi}}}</div>
                <div class="signature">
-                  <div class="signature-img"><img src="pages/images/icons/signature.png" alt=""/></div>
-                  <h5>SUJIONO</h5>
-                  <div class="designation">(Chairman and founder)</div>
+                  <div class="signature-img"><img src="{{signature.photo}}" alt=""/></div>
+                  <h5>{{signature.title}}</h5>
+                  <div class="designation">{{{signature.subtitle}}}</div>
                </div>
             </div>
          </div>
@@ -169,135 +101,28 @@
       </div>
       <div class="row clearfix">
          <!-- Services Block Two -->
-         <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box">
-               <div class="icon-box">
-                  <span class="icon flaticon-internet"></span>
-               </div>
-               <h3>MASALAH PERUSAHAAN</h3>
-               <div class="text">
-                  Kami menyediakan layanan dalam banyak urusan perusahaan, yang mencakup sektor-sektor bisnis penting. <br>Dalam bidang praktik ini, Firma memperluas layanannya dari proyek yang sederhana hingga kompleks, seperti penyusunan perjanjian, pendirian perusahaan, memperoleh lisensi dan izin, restrukturisasi perusahaan dan membantu klien dalam transaksi transnasional. Kami telah mewakili perusahaan lokal dan internasional.
-               </div>
-               <div class="overlay-box" style="background-image: url(pages/images/resource/service-1.jpg);">
-                  <div class="overlay-inner">
-                     <div class="content">
-                        <span class="icon flaticon-internet"></span>
-                        <h4><a href="services-detail.html">MASALAH PERUSAHAAN</a></h4>
-                        <a href="services-detail.html" class="theme-btn btn-style-one">consult now</a>
+         @each(v in serviceTxt)
+            <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
+               <div class="inner-box">
+                  <div class="icon-box">
+                     <span class="{{v.icon}}"></span>
+                  </div>
+                  <h3>{{v.title}}</h3>
+                  <div class="text">
+                     {{{v.subtitle}}}
+                  </div>
+                  <div class="overlay-box" style="background-image: url(pages/images/resource/service-1.jpg);">
+                     <div class="overlay-inner">
+                        <div class="content">
+                           <span class="{{v.icon}}"></span>
+                           <h4><a href="#">{{v.title}}</a></h4>
+                           <a href="#" class="theme-btn btn-style-one">consult now</a>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-         </div>
-         <!-- Services Block Two -->
-         <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box">
-               <div class="icon-box">
-                  <span class="icon flaticon-museum"></span>
-               </div>
-               <h3>HAK KEKAYAAN INTELEKTUAL & KEPAILITAN</h3>
-               <div class="text">
-                  Perlindungan Hak Kekayaan Intelektual adalah wajib untuk mendorong pertumbuhan bisnis di Indonesia. Oleh karena itu, Firma tidak hanya memberikan jasa hukum untuk permohonan hak cipta, nama merek, dan pendaftaran paten, tetapi juga jasa untuk Pengajuan dalam melindungi pemegang IP dari pemalsuan hak IP mereka secara tidak sah. Kami memiliki reputasi luas dalam bidang praktik ini. Dan hal lainnya menyangkut kepailitan.
-               </div>
-               <div class="overlay-box" style="background-image: url(pages/images/resource/service-1.jpg);">
-                  <div class="overlay-inner">
-                     <div class="content">
-                        <span class="icon flaticon-museum"></span>
-                        <h4><a href="services-detail.html">HAK KEKAYAAN INTELEKTUAL & KEPAILITAN</a></h4>
-                        <a href="services-detail.html" class="theme-btn btn-style-one">consult now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Services Block Two -->
-         <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box">
-               <div class="icon-box">
-                  <span class="icon flaticon-gun"></span>
-               </div>
-               <h3>
-                  PROSES PENGADILAN
-               </h3>
-               <div class="text">
-                  Sejak pendiriannya, Firma ini memiliki area praktik terkuatnya Dalam litigasi Firma memperluas layanannya untuk menangani Kredit Bermasalah, kasus kerugian, jenis wanprestasi lainnya, serta kasus pidana. Kami telah membela sebagian besar klien kami melalui area latihan ini. Dalam membela klien Perorangan, Kami pernah menangani kasus klien biasa seperti Prita Mulyasari hingga artis seperti Titiek Puspa. Klien perusahaan kami termasuk perusahaan yang termasuk di antara perusahaan terbesar di dunia.
-               </div>
-               <div class="overlay-box" style="background-image: url(pages/images/resource/service-1.jpg);">
-                  <div class="overlay-inner">
-                     <div class="content">
-                        <span class="icon flaticon-gun"></span>
-                        <h4><a href="services-detail.html">PROSES PENGADILAN</a></h4>
-                        <a href="services-detail.html" class="theme-btn btn-style-one">consult now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Services Block Two -->
-         <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box">
-               <div class="icon-box">
-                  <span class="icon flaticon-plan"></span>
-               </div>
-               <h3>MASALAH PERBANKAN & KEUANGAN</h3>
-               <div class="text">
-                  Pengacara Firma yang berspesialisasi dalam perbankan sebagian besar adalah pengacara yang terlatih baik dalam Pengajuan perdata maupun pidana. Dengan latar belakang ini, pengacara kami memahami ekspektasi dari kedua sisi transaksi dan memiliki pemahaman hukum yang bekerja paralel dengan pemahaman komersial mereka. Firma kami mewakili berbagai lembaga keuangan dan penyedia layanan keuangan, dengan penekanan khusus pada bank dan keuangan komersial lainnya pemberi pinjaman. Dari penyusunan perjanjian pinjaman yang sederhana hingga mengatur pinjaman sindikasi, Firma Kami adalah yang terbaik dalam bisnis ini.
-               </div>
-               <div class="overlay-box" style="background-image: url(pages/images/resource/service-1.jpg);">
-                  <div class="overlay-inner">
-                     <div class="content">
-                        <span class="icon flaticon-plan"></span>
-                        <h4><a href="services-detail.html">MASALAH PERBANKAN & KEUANGAN</a></h4>
-                        <a href="services-detail.html" class="theme-btn btn-style-one">consult now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Services Block Two -->
-         <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box">
-               <div class="icon-box">
-                  <span class="icon flaticon-book"></span>
-               </div>
-               <h3>ARBITRASE & RESOLUSI SENGKETA</h3>
-               <div class="text">
-                  Kami memahami kebutuhan klien kami untuk penyelesaian kasus mereka yang cepat dan efisien. Mengingat hal ini dan seiring dengan posisi kami yang kuat sebagai Firma Iitigasi Komersial terkemuka, Kami menyediakan klien dengan pilihan penyelesaian sengketa melalui alternatif penyelesaian sengketa baik di tingkat nasional maupun internasional. Pengacara kami yang berkualifikasi berpengalaman dan berlisensi untuk mempraktikkan arbitrase dan mediasi di tingkat nasional dan internasional.
-               </div>
-               <div class="overlay-box" style="background-image: url(pages/images/resource/service-1.jpg);">
-                  <div class="overlay-inner">
-                     <div class="content">
-                        <span class="icon flaticon-book"></span>
-                        <h4><a href="services-detail.html">ARBITRASE & RESOLUSI SENGKETA</a></h4>
-                        <a href="services-detail.html" class="theme-btn btn-style-one">consult now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Services Block Two -->
-         <div class="services-block-two col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box">
-               <div class="icon-box">
-                  <span class="icon flaticon-house-outline"></span>
-               </div>
-               <h3>MASALAH PERBANKAN & KEUANGAN</h3>
-               <div class="text">
-                  Pengacara Firma yang berspesialisasi dalam perbankan sebagian besar adalah pengacara yang terlatih baik dalam Pengajuan perdata maupun pidana. Dengan latar belakang ini, pengacara kami memahami ekspektasi dari kedua sisi transaksi dan memiliki pemahaman hukum yang bekerja paralel dengan pemahaman komersial mereka. Firma kami mewakili berbagai lembaga keuangan dan penyedia layanan keuangan, dengan penekanan khusus pada bank dan keuangan komersial lainnya pemberi pinjaman. Dari penyusunan perjanjian pinjaman yang sederhana hingga mengatur pinjaman sindikasi, Firma Kami adalah yang terbaik dalam bisnis ini.
-               </div>
-               <div class="overlay-box" style="background-image: url(pages/images/resource/service-1.jpg);">
-                  <div class="overlay-inner">
-                     <div class="content">
-                        <span class="icon flaticon-house-outline"></span>
-                        <h4><a href="services-detail.html">MASALAH PERBANKAN & KEUANGAN</a></h4>
-                        <a href="services-detail.html" class="theme-btn btn-style-one">
-                           consult now
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+         @endeach
       </div>
       <!-- Lower Section -->
       <div class="lower-section">
@@ -565,62 +390,30 @@
       </div>
       <div class="row clearfix">
          <!-- News Block -->
-         <div class="news-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-               <div class="image">
-                  <img src="pages/images/resource/news-1.jpg" alt="" />
-                  <div class="overlay-box">
-                     <a href="images/resource/news-1.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
+         @each(n in news)
+            <div class="news-block col-lg-4 col-md-6 col-sm-12">
+               <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div class="image">
+                     @if(n.images)
+                        <img src="{{assetsUrl(n.images)}}" alt="" />
+                     @else
+                        <img src="{{assetsUrl('default-photo.jpg')}}" alt="" />
+                     @endif
+                     <div class="overlay-box">
+                        <a href="images/resource/news-1.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
+                     </div>
+                  </div>
+                  <div class="lower-content">
+                     <ul class="post-meta">
+                        <li><span class="fa fa-calendar"></span>{{n.date}}</li>
+                        <li><span class="fa fa-user"></span>{{n.author}}</li>
+                     </ul>
+                     <h5><a href="/news-detail/{{n.id}}">{{n.title}}</a></h5>
+                     <a href="/news-detail/{{n.id}}" class="theme-btn btn-style-two">View more</a>
                   </div>
                </div>
-               <div class="lower-content">
-                  <ul class="post-meta">
-                     <li><span class="fa fa-calendar"></span>September 12, 2019</li>
-                     <li><span class="fa fa-user"></span>Admin</li>
-                  </ul>
-                  <h5><a href="blog-single.html">Strategy for Norway's Peion Fund Global.</a></h5>
-                  <a href="blog-single.html" class="theme-btn btn-style-two">View more</a>
-               </div>
             </div>
-         </div>
-         <!-- News Block -->
-         <div class="news-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-               <div class="image">
-                  <img src="pages/images/resource/news-2.jpg" alt="" />
-                  <div class="overlay-box">
-                     <a href="images/resource/news-2.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
-                  </div>
-               </div>
-               <div class="lower-content">
-                  <ul class="post-meta">
-                     <li><span class="fa fa-calendar"></span>September 12, 2019</li>
-                     <li><span class="fa fa-user"></span>Admin</li>
-                  </ul>
-                  <h5><a href="blog-single.html">What we are capable of usually gets discovered.</a></h5>
-                  <a href="blog-single.html" class="theme-btn btn-style-two">View more</a>
-               </div>
-            </div>
-         </div>
-         <!-- News Block -->
-         <div class="news-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-               <div class="image">
-                  <img src="pages/images/resource/news-3.jpg" alt="" />
-                  <div class="overlay-box">
-                     <a href="images/resource/news-3.jpg" data-fancybox="news" data-caption="" class="plus flaticon-plus"></a>
-                  </div>
-               </div>
-               <div class="lower-content">
-                  <ul class="post-meta">
-                     <li><span class="fa fa-calendar"></span>September 12, 2019</li>
-                     <li><span class="fa fa-user"></span>Admin</li>
-                  </ul>
-                  <h5><a href="blog-single.html">Food industry leaders often change their promoters.</a></h5>
-                  <a href="blog-single.html" class="theme-btn btn-style-two">View more</a>
-               </div>
-            </div>
-         </div>
+         @endeach
       </div>
    </div>
 </section>

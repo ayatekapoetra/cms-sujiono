@@ -21,25 +21,25 @@
                     <div class="col-md-12">
                         <div class="row el-element-overlay m-b-40">
                             <div class="col-md-12">
-                                <a href="/dashboard/blog/create" class="btn btn-inverse waves-effect waves-light" type="button">
-                                    <span class="btn-label"><i class="fa fa-plus"></i></span> Tambah Blog
+                                <a href="/dashboard/news/create" class="btn btn-inverse waves-effect waves-light" type="button">
+                                    <span class="btn-label"><i class="fa fa-plus"></i></span> Tambah News
                                 </a>
                                 <hr>
                             </div>
                             <div class="col-md-12">
                                 <div class="white-box">
-                                    <h3 class="box-title">Recent sales</h3>
+                                    <h3 class="box-title">List News</h3>
                                     <ol class="breadcrumb">
                                         <li><a href="/dashboard">Home</a></li>
-                                        <li class="active">Blog</li>
+                                        <li class="active">News</li>
                                     </ol>
                                     <div class="table-responsive">
-                                        <table class="table">
+                                        <table class="table" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Photo</th>
-                                                    <th width="*">Narasi</th>
+                                                    <th>Narasi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -49,10 +49,10 @@
                                                         <td>
                                                             <img src="{{ assetsUrl(item.images) }}" alt="..." class="img-rounded" width="200">
                                                             <p class="m-t-10">
-                                                                <a href="/dashboard/blog/{{item.id}}/show" class="btn btn-warning"><i class="fa fa-edit"></i> Sunting</a>
+                                                                <a href="/dashboard/news/{{item.id}}/show" class="btn btn-warning"><i class="fa fa-edit"></i> Sunting</a>
                                                             </p>
                                                         </td>
-                                                        <td>
+                                                        <td class="">
                                                             <strong>{{item.title}}</strong> <small>[ {{item.date}} ] </small><br>
                                                             <small>{{{item.narasi}}}</small>
                                                         </td>
