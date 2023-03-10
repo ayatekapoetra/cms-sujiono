@@ -30,13 +30,15 @@ class HomeController {
             date: moment(v.date).format('DD MMMM YYYY')
         }))
 
-        const bannerSlider = (await Main.query().where('tipe', 'slider-banner').fetch()).toJSON()
-        const serviceIco = (await Main.query().where('tipe', 'services-icon').fetch()).toJSON()
-        const serviceTxt = (await Main.query().where('tipe', 'services-teks').fetch()).toJSON()
+        const bannerSlider = (await Main.query().where('tipe', 'slider-banner').limit(4).fetch()).toJSON()
+        const serviceIco = (await Main.query().where('tipe', 'services-icon').limit(4).fetch()).toJSON()
+        const serviceTxt = (await Main.query().where('tipe', 'services-teks').limit(6).fetch()).toJSON()
         const aboutUs = (await Main.query().where('tipe', 'main-about-us').last()).toJSON()
         const signature = (await Main.query().where('tipe', 'signature').last()).toJSON()
+        const faktaMenarik = (await Main.query().where('tipe', 'fakta-menarik').limit(4).fetch()).toJSON()
+        const teamMember = (await Main.query().where('tipe', 'team-member').limit(4).fetch()).toJSON()
 
-        console.log("<news>", news);
+        console.log("<news>", faktaMenarik);
 
         return view.render('pages.index', {
             news: news.data,
@@ -44,12 +46,23 @@ class HomeController {
             serviceIco: serviceIco,
             aboutUs: aboutUs,
             signature: signature,
-            serviceTxt: serviceTxt
+            serviceTxt: serviceTxt,
+            faktaMenarik: faktaMenarik,
+            team: teamMember
         })
     }
 
     async about ({view}) {
-        return view.render('pages.about')
+        const aboutUs = (await Main.query().where('tipe', 'main-about-us').last()).toJSON()
+        const signature = (await Main.query().where('tipe', 'signature').last()).toJSON()
+        const faktaMenarik = (await Main.query().where('tipe', 'fakta-menarik').limit(4).fetch()).toJSON()
+        const teamMember = (await Main.query().where('tipe', 'team-member').limit(8).fetch()).toJSON()
+        return view.render('pages.about', {
+            aboutUs: aboutUs,
+            signature: signature,
+            faktaMenarik: faktaMenarik,
+            team: teamMember
+        })
     }
 
     async testimonial ({view}) {

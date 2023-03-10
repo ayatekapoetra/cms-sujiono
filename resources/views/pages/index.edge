@@ -224,42 +224,17 @@
       <!-- Fact Counter -->
       <div class="fact-counter">
          <div class="row clearfix">
-            <!--Column-->
-            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-               <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                  <div class="count-outer count-box">
-                     <span class="count-text" data-speed="3000ms" data-stop="1825">0</span>+
-                     <div class="counter-title">Completed works</div>
+            @each(v in faktaMenarik)
+               <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
+                  <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                     <div class="count-outer count-box">
+                        <span class="count-text" data-speed="3000ms" data-stop="{{v.subtitle}}">0</span>+
+                        <div class="counter-title">{{v.title}}</div>
+                     </div>
                   </div>
                </div>
-            </div>
+            @endeach
             <!--Column-->
-            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-               <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                  <div class="count-outer count-box">
-                     <span class="count-text" data-speed="2000" data-stop="532">0</span>+
-                     <div class="counter-title">Satisfied clients</div>
-                  </div>
-               </div>
-            </div>
-            <!--Column-->
-            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-               <div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-                  <div class="count-outer count-box">
-                     <span class="count-text" data-speed="2000" data-stop="69">0</span>+
-                     <div class="counter-title">Winning awards</div>
-                  </div>
-               </div>
-            </div>
-            <!--Column-->
-            <div class="column counter-column col-lg-3 col-md-6 col-sm-12">
-               <div class="inner wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">
-                  <div class="count-outer count-box">
-                     <span class="count-text" data-speed="1500" data-stop="32">0</span>+
-                     <div class="counter-title">Team members</div>
-                  </div>
-               </div>
-            </div>
          </div>
       </div>
    </div>
@@ -283,95 +258,30 @@
       </div>
       <div class="clearfix">
          <!-- Team Block -->
-         <div class="team-block col-lg-3 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-               <div class="image">
-                  <a href="#"><img src="pages/images/resource/sijiono-photo-2.jpg" alt="" /></a>
-               </div>
-               <div class="lower-content">
-                  <h3><a href="#">SUJIONO, SH., MH</a></h3>
-                  <div class="designation">Chairman and founder</div>
-                  <div class="overlay-box">
-                     <div class="overlay-content">
+         @each(v in team)
+            <div class="team-block col-lg-3 col-md-6 col-sm-12">
+               <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div class="image">
+                     <a href="#"><img src="{{v.photo}}" alt="" /></a>
+                  </div>
+                  <div class="lower-content">
+                     <h3><a href="#">{{v.title}}</a></h3>
+                     <div class="designation">{{v.subtitle}}</div>
+                     <div class="overlay-box">
+                        <div class="overlay-content">
                         <div class="title">Contact info</div>
                         <ul class="social-icons">
                            <ul class="social-icons">
                            <li><a href="#"><span class="fa fa-phone"></span></a></li>
-                           <li class="text-white">081 XXX XXX XXX</li>
+                           <li class="text-white">{{v.narasi}}</li>
                         </ul>
                         </ul>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-         </div>
-         <!-- Team Block -->
-         <div class="team-block col-lg-3 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-               <div class="image">
-                  <a href="#"><img src="pages/images/resource/HENDRA-L-DON-SH-MH.jpg" alt="" /></a>
-               </div>
-               <div class="lower-content">
-                  <h3><a href="#">HENDRA L. SH.MH</a></h3>
-                  <div class="designation">SENIOR ADVOCATES</div>
-                  <div class="overlay-box">
-                     <div class="overlay-content">
-                        <div class="title">Contact info</div>
-                        <ul class="social-icons">
-                           <ul class="social-icons">
-                           <li><a href="#"><span class="fa fa-phone"></span></a></li>
-                           <li class="text-white">081 XXX XXX XXX</li>
-                        </ul>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Team Block -->
-         <div class="team-block col-lg-3 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-               <div class="image">
-                  <a href="#"><img src="pages/images/resource/HANDOKO-YULIKO-EFFENDI-SH.jpg" alt="" /></a>
-               </div>
-               <div class="lower-content">
-                  <h3><a href="#">HANDOKO Y E, SH</a></h3>
-                  <div class="designation">SENIOR ADVOCATES</div>
-                  <div class="overlay-box">
-                     <div class="overlay-content">
-                        <div class="title">Contact info</div>
-                        <ul class="social-icons">
-                           <ul class="social-icons">
-                           <li><a href="#"><span class="fa fa-phone"></span></a></li>
-                           <li class="text-white">081 XXX XXX XXX</li>
-                        </ul>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Team Block -->
-         <div class="team-block col-lg-3 col-md-6 col-sm-12">
-            <div class="inner-box wow fadeInUp" data-wow-delay="900ms" data-wow-duration="1500ms">
-               <div class="image">
-                  <a href="#"><img src="pages/images/resource/RAHDINAL-FATHANAH.jpg" alt="" /></a>
-               </div>
-               <div class="lower-content">
-                  <h3><a href="#">RAHDINAL F, SH.MKn</a></h3>
-                  <div class="designation">SENIOR ADVOCATES</div>
-                  <div class="overlay-box">
-                     <div class="overlay-content">
-                        <div class="title">Contact info</div>
-                        <ul class="social-icons">
-                           <li><a href="#"><span class="fa fa-phone"></span></a></li>
-                           <li class="text-white">081 XXX XXX XXX</li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+         @endeach
       </div>
    </div>
 </section>
