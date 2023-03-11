@@ -58,5 +58,26 @@ Route.group(() => {
 
     Route.get('/hiring', 'HiringDashboardController.index').as('hiring')
     Route.post('/hiring', 'HiringDashboardController.store').as('content-hiring-post')
+    
+    Route.get('/home/banner', 'HomeBannerController.index').as('home-banner')
+    Route.post('/home/banner', 'HomeBannerController.store').as('home-banner.store')
+    Route.get('/home/banner/create', 'HomeBannerController.create').as('home-banner.create')
+    Route.get('/home/banner/:id/show', 'HomeBannerController.show').as('home-banner.show')
+    Route.post('/home/banner/:id/update', 'HomeBannerController.update').as('home-banner.update')
+    Route.post('/home/banner/:id/destroy', 'HomeBannerController.destroy').as('home-banner.destroy')
+
+    Route.get('/home/service-icon', 'HomeServiceIconController.index').as('home-service-icon')
+    Route.post('/home/service-icon', 'HomeServiceIconController.store').as('home-service-icon.store')
+    Route.get('/home/service-icon/create', 'HomeServiceIconController.create').as('home-service-icon.create')
+    Route.get('/home/service-icon/:id/show', 'HomeServiceIconController.show').as('home-service-icon.show')
+    Route.post('/home/service-icon/:id/update', 'HomeServiceIconController.update').as('home-service-icon.update')
+    Route.post('/home/service-icon/:id/destroy', 'HomeServiceIconController.destroy').as('home-service-icon.destroy')
+
+    Route.get('/home/service-text', 'HomeServiceTextController.index').as('home-service-text')
+    Route.post('/home/service-text', 'HomeServiceTextController.store').as('home-service-text.store')
+    Route.get('/home/service-text/create', 'HomeServiceTextController.create').as('home-service-text.create')
+    Route.get('/home/service-text/:id/show', 'HomeServiceTextController.show').as('home-service-text.show')
+    Route.post('/home/service-text/:id/update', 'HomeServiceTextController.update').as('home-service-text.update')
+    Route.post('/home/service-text/:id/destroy', 'HomeServiceTextController.destroy').as('home-service-text.destroy')
 
 }).prefix('dashboard').namespace('dashboard').middleware(['gp'])

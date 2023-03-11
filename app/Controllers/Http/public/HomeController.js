@@ -30,15 +30,29 @@ class HomeController {
             date: moment(v.date).format('DD MMMM YYYY')
         }))
 
-        const bannerSlider = (await Main.query().where('tipe', 'slider-banner').limit(4).fetch()).toJSON()
-        const serviceIco = (await Main.query().where('tipe', 'services-icon').limit(4).fetch()).toJSON()
-        const serviceTxt = (await Main.query().where('tipe', 'services-teks').limit(6).fetch()).toJSON()
+        const bannerSlider = (await Main.query().where( w => {
+            w.where('tipe', 'slider-banner')
+            w.where('aktif', 'Y')
+        }).limit(4).orderBy('urut').fetch()).toJSON()
+        const serviceIco = (await Main.query().where( w => {
+            w.where('tipe', 'services-icon')
+            w.where('aktif', 'Y')
+        }).limit(4).orderBy('urut').fetch()).toJSON()
+        const serviceTxt = (await Main.query().where( w => {
+            w.where('tipe', 'services-teks')
+            w.where('aktif', 'Y')
+        }).limit(6).orderBy('urut').fetch()).toJSON()
+        const faktaMenarik = (await Main.query().where( w => {
+            w.where('tipe', 'fakta-menarik')
+            w.where('aktif', 'Y')
+        }).limit(4).orderBy('urut').fetch()).toJSON()
+        const teamMember = (await Main.query().where( w => {
+            w.where('tipe', 'team-member')
+            w.where('aktif', 'Y')
+        }).limit(4).orderBy('urut').fetch()).toJSON()
         const aboutUs = (await Main.query().where('tipe', 'main-about-us').last()).toJSON()
         const signature = (await Main.query().where('tipe', 'signature').last()).toJSON()
-        const faktaMenarik = (await Main.query().where('tipe', 'fakta-menarik').limit(4).fetch()).toJSON()
-        const teamMember = (await Main.query().where('tipe', 'team-member').limit(4).fetch()).toJSON()
 
-        console.log("<news>", faktaMenarik);
 
         return view.render('pages.index', {
             news: news.data,
