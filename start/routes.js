@@ -80,4 +80,15 @@ Route.group(() => {
     Route.post('/home/service-text/:id/update', 'HomeServiceTextController.update').as('home-service-text.update')
     Route.post('/home/service-text/:id/destroy', 'HomeServiceTextController.destroy').as('home-service-text.destroy')
 
-}).prefix('dashboard').namespace('dashboard').middleware(['gp'])
+    Route.get('/home/tentang-kami', 'HomeTentangKamiController.index').as('home-tentang-kami')
+    Route.post('/home/tentang-kami/:id/update', 'HomeTentangKamiController.update').as('home-tentang-kami.update')
+
+    Route.get('/home/team-kami', 'HomeTeamKamiController.index').as('home-team-kami')
+    Route.post('/home/team-kami', 'HomeTeamKamiController.store').as('home-team-kami.store')
+    Route.get('/home/team-kami/create', 'HomeTeamKamiController.create').as('home-team-kami.create')
+    Route.get('/home/team-kami/:id/show', 'HomeTeamKamiController.show').as('home-team-kami.show')
+    Route.post('/home/team-kami/:id/update', 'HomeTeamKamiController.update').as('home-team-kami.update')
+    Route.post('/home/team-kami/:id/update-text', 'HomeTeamKamiController.updateText').as('home-team-kami.updateText')
+    Route.post('/home/team-kami/:id/destroy', 'HomeTeamKamiController.destroy').as('home-team-kami.destroy')
+
+}).prefix('dashboard').namespace('dashboard')//.middleware(['gp'])

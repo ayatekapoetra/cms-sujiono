@@ -52,6 +52,7 @@ class HomeController {
         }).limit(4).orderBy('urut').fetch()).toJSON()
         const aboutUs = (await Main.query().where('tipe', 'main-about-us').last()).toJSON()
         const signature = (await Main.query().where('tipe', 'signature').last()).toJSON()
+        const teamText = (await Main.query().where('tipe', 'team-teks').last()).toJSON()
 
 
         return view.render('pages.index', {
@@ -62,7 +63,8 @@ class HomeController {
             signature: signature,
             serviceTxt: serviceTxt,
             faktaMenarik: faktaMenarik,
-            team: teamMember
+            team: teamMember,
+            teamText: teamText
         })
     }
 

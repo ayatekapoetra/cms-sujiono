@@ -1,0 +1,108 @@
+@layout('template.main')
+@section('content-body')
+    <!-- Dashboard content -->
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Home Dashboard</h4> </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                &nbsp;
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="white-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row el-element-overlay m-b-40">
+                            <div class="col-md-12">
+                                <div class="white-box">
+                                    <h3 class="box-title">Tentang Kami</h3>
+                                    <ol class="breadcrumb">
+                                        <li><a href="/dashboard">Home</a></li>
+                                        <li class="active">Tentang Kami</li>
+                                    </ol>
+                                    <form id="form-update" data-id="{{data.id}}">
+                                        {{ csrfField() }}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Title</label>
+                                                    <input type="text" class="form-control" name="title" placeholder="Input title disini..." value="{{data.title}}" required> 
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>SubTitle</label>
+                                                    <input type="text" class="form-control" name="subtitle" placeholder="Input subtitle disini..." value="{{data.subtitle}}" required> 
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Narasi</label>
+                                                    <textarea class="form-control" name="narasi" rows="10">{{data.narasi}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label class="">Photo</label>
+                                                <img src="{{ assetsUrl(data.photo) }}" alt="..." class="img-responsive">
+                                            </div>
+                                            <div class="col-sm-4 pull-right">
+                                                <div class="form-group">
+                                                    <label>Ganti Photo</label>
+                                                    <input type="file" name="photo" class="form-control"> 
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                                                <button type="button" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('form#form-update').on('submit', function(e){
+                e.preventDefault()
+                var id = $(this).data('id')
+                var data = new FormData(this)
+                $.ajax({
+                    async: true,
+                    headers: {'x-csrf-token': $('[name=_csrf]').val()},
+                    url: '/dashboard/home/tentang-kami/'+id+'/update',
+                    method: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    success: function(result){
+                        console.log(result);
+                        if(result.success){
+                            swal('Okey', result.message, 'success')
+                            window.location.reload()
+                        }else{
+                            swal('Opps', result.message, 'warning')
+                        }
+                    },
+                    error: function(err){
+                        console.log(err)
+                        swal('Opps', err, 'error')
+                    }
+                })
+            })
+        })
+    </script>
+@endsection

@@ -1,0 +1,140 @@
+@layout('template.main')
+@section('content-body')
+    <!-- Dashboard content -->
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Home Dashboard</h4> </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                &nbsp;
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+            <div class="white-box">
+                <form id="form-update" data-id="{{res.id}}">
+                    {{ csrfField() }}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Title Team</label>
+                                <input type="text" class="form-control" name="title" placeholder="Input title disini..." value="{{res.title}}" required> 
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="" for="example-email">Subtitle</label>
+                                <input type="text" name="subtitle" class="form-control" value="{{res.subtitle}}"> 
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="" for="example-email">Narasi</label>
+                                <textarea name="narasi" class="form-control" rows="3">{{{res.narasi}}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                            <button type="button" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="white-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row el-element-overlay m-b-40">
+                            <div class="col-md-12">
+                                <a href="/dashboard/home/team-kami/create" class="btn btn-inverse waves-effect waves-light" type="button">
+                                    <span class="btn-label"><i class="fa fa-plus"></i></span> Tambah Team
+                                </a>
+                                <hr>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="white-box">
+                                    <h3 class="box-title">List Team Kami</h3>
+                                    <ol class="breadcrumb">
+                                        <li><a href="/dashboard">Home</a></li>
+                                        <li class="active">Team Kami</li>
+                                    </ol>
+                                    <div class="table-responsive">
+                                        <table class="table" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Photo</th>
+                                                    <th>Narasi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @each(item in list)
+                                                    <tr>
+                                                        <td>{{$loop.index + 1}}</td>
+                                                        <td>
+                                                            <img src="{{ assetsUrl(item.photo) }}" alt="..." class="img-rounded" width="200"> <br>
+                                                            <small>ukuran 292x292 pixel</small>
+                                                            <p class="m-t-10">
+                                                                <a href="/dashboard/home/team-kami/{{item.id}}/show" class="btn btn-warning"><i class="fa fa-edit"></i> Sunting</a>
+                                                            </p>
+                                                        </td>
+                                                        <td class="">
+                                                            <strong>{{item.title}}</strong><br>
+                                                            {{{item.subtitle}}} <br>
+                                                            <small>{{item.narasi}}</small>
+                                                        </td>
+                                                    </tr>
+                                                  
+                                                @endeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+
+            $('form#form-update').on('submit', function(e){
+                e.preventDefault()
+                var id = $(this).data('id')
+                var data = new FormData(this)
+                $.ajax({
+                    async: true,
+                    headers: {'x-csrf-token': $('[name=_csrf]').val()},
+                    url: '/dashboard/home/team-kami/'+id+'/update-text',
+                    method: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    success: function(result){
+                        console.log(result);
+                        if(result.success){
+                            swal('Okey', result.message, 'success')
+                            window.location.reload()
+                        }else{
+                            swal('Opps', result.message, 'warning')
+                        }
+                    },
+                    error: function(err){
+                        console.log(err)
+                        swal('Opps', err, 'error')
+                    }
+                })
+            })
+        })
+    </script>
+@endsection
