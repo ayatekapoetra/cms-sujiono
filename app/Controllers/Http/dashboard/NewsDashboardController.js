@@ -129,7 +129,7 @@ class NewsDashboardController {
         if(photo){
             const randURL = moment().format('YYYYMMDDHHmmss')
             const aliasName = `NEWS-${randURL}.${photo.extname}`
-            photoUri = 'blog/'+aliasName
+            photoUri = 'news/'+aliasName
             await photo.move(Helpers.publicPath(`news`), {
                 name: aliasName,
                 overwrite: true,
