@@ -91,4 +91,17 @@ Route.group(() => {
     Route.post('/home/team-kami/:id/update-text', 'HomeTeamKamiController.updateText').as('home-team-kami.updateText')
     Route.post('/home/team-kami/:id/destroy', 'HomeTeamKamiController.destroy').as('home-team-kami.destroy')
 
+    // ABOUT US
+    Route.get('/about-us/banner', 'AboutUsBannerController.indexBanner').as('about-us-banner')
+    Route.post('/about-us/banner/:id/update', 'AboutUsBannerController.updateBanner').as('about-us-banner.update')
+    Route.get('/about-us/teks-narasi', 'AboutUsBannerController.indexNarasi').as('about-us-teks-narasi')
+    Route.post('/about-us/teks-narasi', 'AboutUsBannerController.updateNarasi').as('about-us-teks-narasi.store')
+    Route.get('/about-us/tahun-prestasi', 'AboutUsBannerController.indexPrestasi').as('about-us-tahun-prestasi')
+    Route.get('/about-us/tahun-prestasi/:id/show', 'AboutUsBannerController.showPrestasi').as('about-us-tahun-prestasi')
+    Route.post('/about-us/tahun-prestasi/:id/update', 'AboutUsBannerController.updatePrestasi').as('about-us-tahun-prestasi.update')
+    Route.get('/about-us/fun-fact', 'AboutUsBannerController.indexFact').as('home-team-kami')
+    Route.get('/about-us/fun-fact/:id/show', 'AboutUsBannerController.showFact').as('home-team-kami.show')
+    Route.post('/about-us/fun-fact/:id/update', 'AboutUsBannerController.updateFact').as('home-team-kami.update')
+    Route.post('/about-us/fun-fact/:id/update-text', 'AboutUsBannerController.updateFactText').as('home-team-kami.updateText')
+
 }).prefix('dashboard').namespace('dashboard')//.middleware(['gp'])

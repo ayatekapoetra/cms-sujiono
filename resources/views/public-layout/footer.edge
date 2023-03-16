@@ -61,17 +61,13 @@
                          <div class="widget-content">
                             <div class="images-outer clearfix">
                                <!--Image Box-->
-                               <figure class="image-box"><a href="images/gallery/1.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="pages/images/gallery/footer-gallery-thumb-1.jpg" alt=""></a></figure>
-                               <!--Image Box-->
-                               <figure class="image-box"><a href="images/gallery/2.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="pages/images/gallery/footer-gallery-thumb-2.jpg" alt=""></a></figure>
-                               <!--Image Box-->
-                               <figure class="image-box"><a href="images/gallery/3.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="pages/images/gallery/footer-gallery-thumb-3.jpg" alt=""></a></figure>
-                               <!--Image Box-->
-                               <figure class="image-box"><a href="images/gallery/4.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="pages/images/gallery/footer-gallery-thumb-4.jpg" alt=""></a></figure>
-                               <!--Image Box-->
-                               <figure class="image-box"><a href="images/gallery/5.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="pages/images/gallery/footer-gallery-thumb-5.jpg" alt=""></a></figure>
-                               <!--Image Box-->
-                               <figure class="image-box"><a href="images/gallery/6.jpg" class="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="pages/images/gallery/footer-gallery-thumb-6.jpg" alt=""></a></figure>
+                               @each(v in gallery)
+                                 <figure class="image-box">
+                                       <a href="{{v.uri}}" class="lightbox-image" data-fancybox="footer-gallery" data-caption="{{v.narasi}}" data-fancybox-group="footer-gallery">
+                                          <img src="{{v.uri}}" alt="">
+                                       </a>
+                                 </figure>
+                               @endeach
                             </div>
                          </div>
                       </div>
@@ -87,7 +83,7 @@
           <div class="row clearfix">
              <!-- Copyright Column -->
              <div class="copyright-column col-lg-6 col-md-6 col-sm-12">
-                <div class="copyright">2019 &copy; All rights reserved by <a href="#">Themexriver</a></div>
+                <div class="copyright">2019 &copy; All rights reserved by <a href="#">sujionolaw</a></div>
              </div>
              <!-- Social Column -->
              <div class="social-column col-lg-6 col-md-6 col-sm-12">

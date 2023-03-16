@@ -1,7 +1,8 @@
 @layout('public-layout.main')
 @section('content-body')
 	<!--Page Title-->
-    <section class="page-title" style="background-image:url(pages/images/background/4.jpg)">
+    <!--<section class="page-title" style="background-image:url(pages/images/background/4.jpg)">-->
+    <section class="page-title" style="background-image:url({{banner.photo}})">
     	<div class="container">
 			<div class="content">
 				<h1>About Us</h1>
@@ -66,47 +67,17 @@
 		<div class="container">
 			<div class="inner-container">
 				<div class="row clearfix">
-					
 					<!-- Feature Block Two -->
-					<div class="feature-block-two col-lg-3 col-md-6 col-sm-12">
-						<div class="fill-line"></div>
-						<div class="inner-box">
-							<div class="year">2013</div>
-							<h3>Mulai Berdiri</h3>
-							<div class="text">Kantor Advokat SUJIONO & ASSOCIATES adalah sebuah kantor hukum di Indonesia yang didirikan pada tahun 2013</div>
+					@each(v in prestasi)
+						<div class="feature-block-two col-lg-3 col-md-6 col-sm-12">
+							<div class="fill-line"></div>
+							<div class="inner-box">
+								<div class="year">{{v.tahun}}</div>
+								<h3>{{v.title}}</h3>
+								<div class="text">{{v.narasi}}</div>
+							</div>
 						</div>
-					</div>
-					
-					<!-- Feature Block Two -->
-					<div class="feature-block-two col-lg-3 col-md-6 col-sm-12">
-						<div class="fill-line"></div>
-						<div class="inner-box">
-							<div class="year">2019</div>
-							<h3>Mulai meraih beberapa penghargaan</h3>
-							<div class="text">“50 Pemimpin Inspiratif Indonesia Bidang Hukum 2019”, versi 7SkyMedia</div>
-						</div>
-					</div>
-					
-					<!-- Feature Block Two -->
-					<div class="feature-block-two col-lg-3 col-md-6 col-sm-12">
-						<div class="fill-line"></div>
-						<div class="inner-box">
-							<div class="year">2020</div>
-							<h3>Winning best awards</h3>
-							<div class="text">“Indonesia Best In Award Winner 2020”, versi Majalah Penghargaan Indonesia.</div>
-						</div>
-					</div>
-					
-					<!-- Feature Block Two -->
-					<div class="feature-block-two col-lg-3 col-md-6 col-sm-12">
-						<div class="fill-line"></div>
-						<div class="inner-box">
-							<div class="year">2021</div>
-							<h3>Professional & Leadership  Award</h3>
-							<div class="text">Indonesia  Innovation  Professional  &  Leadership  Award  Winner  2021 kategori, “Eksklusif & Berkredibilitas Tinggi”, versi World Achievment Association</div>
-						</div>
-					</div>
-				
+					@endeach
 				</div>
 			</div>
 		</div>
@@ -121,20 +92,12 @@
 				<div class="section-title">
 					<div class="row clearfix">
 						<div class="column col-lg-6 col-md-12 col-sm-12">
-							<div class="title">Fun fact</div>
-							<h3>We feel very proud for our <br> great <span>achievement</span></h3>
+							<div class="title">{{faktaTitle.title}}</div>
+							<h3>{{{faktaTitle.subtitle}}}</h3>
 						</div>
 						<div class="column col-lg-6 col-md-12 col-sm-12">
 							<div class="row clearfix">
-								
-								<div class="col-lg-6 col-md-6 col-sm-12">
-									&nbsp;
-								</div>
-								
-								<div class="col-lg-6 col-md-6 col-sm-12">
-									&nbsp;
-								</div>
-								
+								{{{faktaTitle.narasi || ''}}}
 							</div>
 						</div>
 					</div>
@@ -167,11 +130,13 @@
 			<div class="section-title light">
 				<div class="clearfix">
 					<div class="pull-left">
-						<div class="title">Our Team</div>
-						<h3>We feel very proud for our <br> great <span>achievement</span></h3>
+						<div class="title">{{teamText.title}}</div>
+						<h3>{{{teamText.subtitle}}}</h3>
 					</div>
 					<div class="pull-right">
-						<div class="text">Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla dig nissimmi quis neque interdum. An Ohio man allegedly punched his lawyer in the face in court Tuesday upon finding out he was sentenced.</div>
+						<div class="text">
+							{{{teamText.narasi}}}
+						</div>
 					</div>
 				</div>
 			</div>

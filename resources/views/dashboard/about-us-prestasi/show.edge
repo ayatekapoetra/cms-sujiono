@@ -1,0 +1,123 @@
+@layout('template.main')
+@section('content-body')
+    <!-- Dashboard content -->
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Home Dashboard</h4> </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                &nbsp;
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- .row -->
+        <div class="row">
+            <div class="white-box">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title m-b-0">Update Prestasi</h3>
+                            <ol class="breadcrumb">
+                                <li><a href="/dashboard">Home</a></li>
+                                <li><a href="/dashboard/about-us/tahun-prestasi">Prestasi</a></li>
+                                <li class="active">Update</li>
+                            </ol>
+                            <form id="form-update" data-id="{{data.id}}">
+                                {{ csrfField() }}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Tahun</label>
+                                            <input type="text" class="form-control" name="tahun" value="{{data.tahun}}" required> 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Title</label>
+                                            <input type="text" class="form-control" name="title" value="{{data.title}}" required> 
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="" for="example-email">Narasi</label>
+                                            <textarea name="narasi" class="form-control" rows="5">{{{data.narasi}}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                                        <button type="button" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+
+            $('textarea[name="narasi"]').wysihtml5();
+
+            $('form#form-update').on('submit', function(e){
+                e.preventDefault()
+                var id = $(this).data('id')
+                var data = new FormData(this)
+                $.ajax({
+                    async: true,
+                    headers: {'x-csrf-token': $('[name=_csrf]').val()},
+                    url: '/dashboard/about-us/tahun-prestasi/'+id+'/update',
+                    method: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    success: function(result){
+                        console.log(result);
+                        if(result.success){
+                            swal('Okey', result.message, 'success')
+                            window.location.reload()
+                        }else{
+                            swal('Opps', result.message, 'warning')
+                        }
+                    },
+                    error: function(err){
+                        console.log(err)
+                        swal('Opps', err, 'error')
+                    }
+                })
+            })
+
+            $('button#bt-delete').on('click', function(e){
+                e.preventDefault()
+                var id = $(this).data('id')
+                $.ajax({
+                    async: true,
+                    headers: {'x-csrf-token': $('[name=_csrf]').val()},
+                    url: '/dashboard/home/banner/'+id+'/destroy',
+                    method: 'POST',
+                    dataType: 'json',
+                    processData: false,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    success: function(result){
+                        console.log(result);
+                        if(result.success){
+                            swal('Okey', result.message, 'success')
+                            history.back()
+                        }else{
+                            swal('Opps', result.message, 'warning')
+                        }
+                    },
+                    error: function(err){
+                        console.log(err)
+                        swal('Opps', 'err', 'warning')
+                    }
+                })
+            })
+        })
+    </script>
+@endsection

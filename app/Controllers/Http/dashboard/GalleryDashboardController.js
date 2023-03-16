@@ -41,8 +41,8 @@ class GalleryDashboardController {
         if(galleryPic){
             const randURL = moment().format('YYYYMMDDHHmmss')
             const aliasName = `IMG-${randURL}.${galleryPic.extname}`
-            photoLib = 'gallery/'+aliasName
-            await galleryPic.move(Helpers.publicPath(`gallery`), {
+            photoLib = 'pages/gallery/'+aliasName
+            await galleryPic.move(Helpers.publicPath(`pages/gallery`), {
                 name: aliasName,
                 overwrite: true,
             })
@@ -62,8 +62,8 @@ class GalleryDashboardController {
 
         const gallery = new Gallery()
         gallery.fill({
-            title: req.title,
-            narasi: req.narasi,
+            title: req.title || 'gallery',
+            narasi: req.narasi || '',
             date: new Date(),
             uri: photoLib,
             user_id: user.id

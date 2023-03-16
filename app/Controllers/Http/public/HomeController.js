@@ -4,6 +4,8 @@ const Visitor = use("App/Models/Visitor")
 const Blog = use("App/Models/Blog")
 const News = use("App/Models/News")
 const Main = use("App/Models/HomeMain")
+const Gallery = use("App/Models/Gallery")
+const Prestasi = use("App/Models/Prestasi")
 const ContentHiring = use("App/Models/ContentHiring")
 const moment = use('moment')
 
@@ -50,6 +52,9 @@ class HomeController {
             w.where('tipe', 'team-member')
             w.where('aktif', 'Y')
         }).limit(4).orderBy('urut').fetch()).toJSON()
+        const gallery = (await Gallery.query().where( w => {
+            w.where('aktif', 'Y')
+        }).limit(6).orderBy('id', 'desc').fetch()).toJSON()
         const aboutUs = (await Main.query().where('tipe', 'main-about-us').last()).toJSON()
         const signature = (await Main.query().where('tipe', 'signature').last()).toJSON()
         const teamText = (await Main.query().where('tipe', 'team-teks').last()).toJSON()
@@ -64,20 +69,34 @@ class HomeController {
             serviceTxt: serviceTxt,
             faktaMenarik: faktaMenarik,
             team: teamMember,
-            teamText: teamText
+            teamText: teamText,
+            gallery: gallery
         })
     }
 
     async about ({view}) {
+        const banner = (await Main.query().where('tipe', 'banner-about-us').last()).toJSON()
         const aboutUs = (await Main.query().where('tipe', 'main-about-us').last()).toJSON()
         const signature = (await Main.query().where('tipe', 'signature').last()).toJSON()
-        const faktaMenarik = (await Main.query().where('tipe', 'fakta-menarik').limit(4).fetch()).toJSON()
-        const teamMember = (await Main.query().where('tipe', 'team-member').limit(8).fetch()).toJSON()
+        const teamText = (await Main.query().where('tipe', 'team-teks').last()).toJSON()
+        const faktaTitle = (await Main.query().where(w => {
+            w.where('tipe', 'fakta-menarik-teks')
+        }).last()).toJSON()
+        const faktaMenarik = (await Main.query().where('tipe', 'fakta-menarik').limit(4).orderBy('urut').fetch()).toJSON()
+        const prestasi = (await Prestasi.query().where('aktif', 'Y').limit(4).fetch()).toJSON()
+        const teamMember = (await Main.query().where( w => {
+            w.where('tipe', 'team-member')
+            w.where('aktif', 'Y')
+        }).limit(8).fetch()).toJSON()
         return view.render('pages.about', {
+            banner: banner,
             aboutUs: aboutUs,
             signature: signature,
             faktaMenarik: faktaMenarik,
-            team: teamMember
+            faktaTitle: faktaTitle,
+            team: teamMember,
+            teamText: teamText,
+            prestasi: prestasi
         })
     }
 

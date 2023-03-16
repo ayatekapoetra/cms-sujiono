@@ -92,6 +92,8 @@
 
         },
 
+        // titleShow: true,
+
         ajax : {
 
             // Object containing settings for ajax request
