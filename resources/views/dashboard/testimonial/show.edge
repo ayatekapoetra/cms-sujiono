@@ -93,7 +93,7 @@
                 $.ajax({
                     async: true,
                     headers: {'x-csrf-token': $('[name=_csrf]').val()},
-                    url: '/dashboard/home/team-kami/'+id+'/update',
+                    url: '/dashboard/testimonial/'+id+'/update',
                     method: 'POST',
                     data: data,
                     dataType: 'json',
@@ -122,7 +122,7 @@
                 $.ajax({
                     async: true,
                     headers: {'x-csrf-token': $('[name=_csrf]').val()},
-                    url: '/dashboard/home/banner/'+id+'/destroy',
+                    url: '/dashboard/testimonial/'+id+'/destroy',
                     method: 'POST',
                     dataType: 'json',
                     processData: false,

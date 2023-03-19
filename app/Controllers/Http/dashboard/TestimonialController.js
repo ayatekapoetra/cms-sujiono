@@ -143,15 +143,13 @@ class TestimonialController {
             req.photo = photoUri
         }
 
-        const data = await Main.query().where('id', params.id).last()
-        console.log(data);
-        console.log(req);
+        const data = await Testimonial.query().where('id', params.id).last()
         data.merge({
-            title: req.title,
-            subtitle: req.subtitle,
+            nama: req.title,
+            subject: req.subtitle,
             narasi: req.narasi,
-            photo: photoUri || data.photo,
-            urut: req.urut
+            photo: photoUri ? photoUri : data.photo,
+            urut: req.urut || 99
         })
 
         try {
