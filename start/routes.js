@@ -56,6 +56,14 @@ Route.group(() => {
     Route.post('/news/:id/update', 'NewsDashboardController.update').as('news-update')
     Route.post('/news/:id/destroy', 'NewsDashboardController.destroy').as('news-destroy')
 
+    Route.get('/testimonial', 'TestimonialController.index').as('testimonial')
+    Route.post('/testimonial', 'TestimonialController.store').as('testimonial-store')
+    Route.get('/testimonial/create', 'TestimonialController.create').as('testimonial-create')
+    Route.get('/testimonial/:id/show', 'TestimonialController.show').as('testimonial-show')
+    Route.post('/testimonial/:id/update', 'TestimonialController.update').as('testimonial-update')
+    Route.post('/testimonial/:id/update-banner', 'TestimonialController.updateBanner').as('testimonial-updateBanner')
+    Route.post('/testimonial/:id/destroy', 'TestimonialController.destroy').as('testimonial-destroy')
+
     Route.get('/hiring', 'HiringDashboardController.index').as('hiring')
     Route.post('/hiring', 'HiringDashboardController.store').as('content-hiring-post')
     

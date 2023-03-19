@@ -6,6 +6,7 @@ const News = use("App/Models/News")
 const Main = use("App/Models/HomeMain")
 const Gallery = use("App/Models/Gallery")
 const Prestasi = use("App/Models/Prestasi")
+const Testimonial = use("App/Models/Testimonial")
 const ContentHiring = use("App/Models/ContentHiring")
 const moment = use('moment')
 
@@ -88,6 +89,9 @@ class HomeController {
             w.where('tipe', 'team-member')
             w.where('aktif', 'Y')
         }).limit(8).fetch()).toJSON()
+        const gallery = (await Gallery.query().where( w => {
+            w.where('aktif', 'Y')
+        }).limit(6).orderBy('id', 'desc').fetch()).toJSON()
         return view.render('pages.about', {
             banner: banner,
             aboutUs: aboutUs,
@@ -96,12 +100,22 @@ class HomeController {
             faktaTitle: faktaTitle,
             team: teamMember,
             teamText: teamText,
-            prestasi: prestasi
+            prestasi: prestasi,
+            gallery: gallery
         })
     }
 
     async testimonial ({view}) {
-        return view.render('pages.testimonial')
+        const banner = (await Main.query().where('tipe', 'banner-testimonial').last()).toJSON()
+        const testimonial = (await Testimonial.query().where('aktif', 'Y').orderBy('urut').fetch()).toJSON()
+        const gallery = (await Gallery.query().where( w => {
+            w.where('aktif', 'Y')
+        }).limit(6).orderBy('id', 'desc').fetch()).toJSON()
+        return view.render('pages.testimonial', {
+            banner: banner,
+            testimonial: testimonial,
+            gallery: gallery
+        })
     }
 
     async service ({view}) {
