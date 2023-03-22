@@ -1,102 +1,64 @@
 <!--Main Footer-->
 <footer class="main-footer">
-    <div class="container">
-       <!--Widgets Section-->
-       <div class="widgets-section">
-          <div class="row clearfix">
-             <!--Column-->
-             <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                <div class="row clearfix">
-                   <!--Footer Column-->
-                   <div class="footer-column col-lg-7 col-md-6 col-sm-12">
-                      <div class="footer-widget logo-widget">
-                         <div class="logo">
-                            <a href="index.html"><img src="pages/images/footer-logo.png" alt="" /></a>
-                         </div>
-                         <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-                         <ul class="list-style-three">
-                            <li><span class="icon fa fa-phone"></span> +123 (4567) 890</li>
-                            <li><span class="icon fa fa-envelope"></span> info@lawsight.com</li>
-                            <li><span class="icon fa fa-home"></span>380 St Kilda Road, Melbourne <br> VIC 3004, Australia</li>
-                         </ul>
-                      </div>
-                   </div>
-                   <!--Footer Column-->
-                   <div class="footer-column col-lg-5 col-md-6 col-sm-12">
-                      <div class="footer-widget links-widget">
-                         <h4>Links</h4>
-                         <ul class="list-link">
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Services</a></li>
-                            <li><a href="">About us</a></li>
-                            <li><a href="">Testimonials</a></li>
-                            <li><a href="">News</a></li>
-                            <li><a href="">Contact</a></li>
-                         </ul>
-                      </div>
-                   </div>
-                </div>
-             </div>
-             <!--Column-->
-             <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                <div class="row clearfix">
-                   <!--Footer Column-->
-                   <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                      <div class="footer-widget links-widget">
-                         <h4>Support</h4>
-                         <ul class="list-link">
-                            <li><a href="">Contact Us</a></li>
-                            <li><a href="">Submit a Ticket</a></li>
-                            <li><a href="">Visit Knowledge Base</a></li>
-                            <li><a href="">Support System</a></li>
-                            <li><a href="">Refund Policy</a></li>
-                            <li><a href="">Professional Services</a></li>
-                         </ul>
-                      </div>
-                   </div>
-                   <!--Footer Column-->
-                   <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                      <div class="footer-widget gallery-widget">
-                         <h4>Gallery</h4>
-                         <div class="widget-content">
-                            <div class="images-outer clearfix">
-                               <!--Image Box-->
-                               @each(v in gallery)
-                                 <figure class="image-box">
-                                       <a href="{{v.uri}}" class="lightbox-image" data-fancybox="footer-gallery" data-caption="{{v.narasi}}" data-fancybox-group="footer-gallery">
-                                          <img src="{{v.uri}}" alt="">
-                                       </a>
-                                 </figure>
-                               @endeach
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-    </div>
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-       <div class="container">
-          <div class="row clearfix">
-             <!-- Copyright Column -->
-             <div class="copyright-column col-lg-6 col-md-6 col-sm-12">
-                <div class="copyright">2019 &copy; All rights reserved by <a href="#">sujionolaw</a></div>
-             </div>
-             <!-- Social Column -->
-             <div class="social-column col-lg-6 col-md-6 col-sm-12">
-                <ul>
-                   <li class="follow">Follow us: </li>
-                   <li><a href="#"><span class="fa fa-facebook-square"></span></a></li>
-                   <li><a href="#"><span class="fa fa-twitter-square"></span></a></li>
-                   <li><a href="#"><span class="fa fa-linkedin-square"></span></a></li>
-                   <li><a href="#"><span class="fa fa-google-plus-square"></span></a></li>
-                   <li><a href="#"><span class="fa fa-rss-square"></span></a></li>
-                </ul>
-             </div>
-          </div>
-       </div>
-    </div>
- </footer>
+   <div class="container">
+      <!--Widgets Section-->
+      <div class="widgets-section">
+         <div class="row clearfix">
+            <!--Column-->
+            <div class="big-column col-lg-5 col-md-12 col-sm-12">
+               <div class="footer-widget logo-widget">
+                  <div class="logo">
+                     <a href="index.html"><img src="pages/images/footer-logo.png" alt="" /></a>
+                  </div>
+                  <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+                  <ul class="list-style-three">
+                     <li><span class="icon fa fa-phone"></span> +6285 25 0000 236</li>
+                     <li><span class="icon fa fa-envelope"></span> info@lawsight.com</li>
+                     <li><span class="icon fa fa-home"></span>Jl. DI Panjaitan No.18, Mugirejo, Kec. Sungai Pinang, <br/>Kota Samarinda, Kalimantan Timur 75117</li>
+                  </ul>
+               </div>
+            </div>
+            <!--Column-->
+            <div class="big-column col-lg-3 col-md-12 col-sm-12">
+               <div class="footer-widget gallery-widget">
+                  <h4>Gallery</h4>
+                  <div class="widget-content">
+                     <div class="images-outer clearfix">
+                        <!--Image Box-->
+                        @each(v in gallery)
+                           <figure class="image-box">
+                                 <a href="{{v.uri}}" class="lightbox-image" data-fancybox="footer-gallery" data-caption="{{v.narasi}}" data-fancybox-group="footer-gallery">
+                                    <img src="{{v.uri}}" alt="">
+                                 </a>
+                           </figure>
+                        @endeach
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="big-column col-lg-3 col-md-12 col-sm-12">
+               <div class="row clearfix">
+                  <!--Footer Column-->
+                  <div class="footer-widget gallery-widget">
+                     <h4>Location</h4>
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10271.051463849673!2d117.18365924356044!3d-0.45888398790539253!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df5d7b47496dd29%3A0xaf9bb6c0ef47bb8b!2sSujiono%20Law!5e0!3m2!1sid!2sid!4v1679497139864!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+     <div class="container">
+        <div class="row clearfix">
+           
+           <!-- Copyright Column -->
+           <div class="copyright-column col-lg-6 col-md-6 col-sm-12">
+              <div class="copyright">2019 &copy; All rights reserved by <a href="#">Sujiono Law Firm</a></div>
+           </div>
+        </div>
+     </div>
+  </div>
+</footer>
