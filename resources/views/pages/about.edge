@@ -65,22 +65,30 @@
 	<!-- Feature Section Two -->
 	<section class="feature-section-two">
 		<div class="container">
-			<div class="inner-container">
-				<div class="row clearfix">
-					<!-- Feature Block Two -->
+			<div class="row clearfix">
+				<!-- Feature Block Two -->
+				<ul>
 					@each(v in prestasi)
+					<li style="padding: 5px 10px;">
+						<h2 style="line-height: 1em;">{{v.tahun}}</h2>
+						<h5 class="font-weight-bold">{{v.title}}</h5>
+						<div class="text" style="text-align: left;line-height: normal;">{{{v.narasi}}}</div>
+					</li>
+					<!--
 						<div class="feature-block-two col-lg-3 col-md-6 col-sm-12">
 							<div class="fill-line"></div>
 							<div class="inner-box">
 								<div class="year">{{v.tahun}}</div>
 								<h3>{{v.title}}</h3>
-								<div class="text">{{{v.narasi}}}</div>
+								<div class="text" style="text-align: left;line-height: normal;">{{{v.narasi}}}</div>
 							</div>
 						</div>
+					-->
 					@endeach
-				</div>
+				</ul>
 			</div>
 		</div>
+		<hr>
 	</section>
 	<!-- End Feature Section Two -->
 	
@@ -181,7 +189,7 @@
 			<p>
 				Kantor Advokat SUJIONO & ASSOCIATES adalah sebuah kantor hukum di Indonesia yang didirikan pada tahun 2013  oleh Advokat muda yang penuh semangat dan berdedikasi tinggi yang di prakarsai oleh SUJIONO, SH., MH. 
 Berawal dari Biro Hukum kecil di area Bengkuring. Terlepas dari keterbatasannya, pada tahun-tahun awal praktiknya, Firma telah menemukan landasannya dan menunjukkan komitmennya untuk membela yang benar dari yang salah, tanpa melihat latar belakang klien, apakah mereka kaya atau miskin, entitas kecil atau korporasi besar.
-Pada tahun 2016 Firma ini langsung menonjol di antara ratusan firma hukum lainnya di Kalimantan timur khususnya Samarinda. Hal ini dibuktikan dengan fakta bahwa Firma mampu menjadi kantor hukum dengan julukan SPESIALIS PERTAMBANGAN, yang bermula membela perusahaan-perusahaan tambang batubara, kemudian pelayaran dan sawit dengan status nasional dan internasional. Kemudian firma menemukan tempatnya dikalangan hukum tingkat atas dengan membela klien-klien asing dari INDIA, CHINA dan SINGAPURA. Selain itu, praktik wilayah korporasi Firma juga telah meluas hingga menangani beberapa korporasi besar dan badan usaha.
+Pada tahun 2016 Firma ini langsung menonjol di antara ratusan firma hukum lainnya di Kalimantan timur khususnya Samarinda. Hal ini dibuktikan dengan fakta bahwa Firma mampu menjadi kantor hukum dengan julukan SPESIALIS PERTAMBANGAN, yang bermula membela perusahaan-perusahaan tambang batubara, kemudian pelayaran dan sawit dengan status nasional dan internasional. Kemudian firma menemukan tempatnya dikalangan hukum tingkat atas dengan membela klien-klien asing dari INDIA, CHINA, SINGAPURA, DUBAI & THAILAND. Selain itu, praktik wilayah korporasi Firma juga telah meluas hingga menangani beberapa korporasi besar dan badan usaha.
 Didukung oleh catatan keberhasilannya yang panjang, Firma ini terus tumbuh menjadi firma terkemuka yang menangani berbagai klien nasional serta menawarkan layanan hukum yang responsif, intuitif, dan efektif. Firma tersebut telah menangani kasus-kasus Iitigasi profil tinggi dan juga memberi nasihat untuk masalah-masalah perusahaan besar. Memiliki latar belakang yang kuat transparansi, efisien, efektif dan integritas layanannya di berbagai bidang khusus praktik hukum. Memberikan layanan yang memuaskan kepada klien, berkomitmen kepada masyarakat dengan memberikan bantuan pro bono. Sejalan dengan komitmen tersebut, Firma telah membela banyak klien
 
 			</p>

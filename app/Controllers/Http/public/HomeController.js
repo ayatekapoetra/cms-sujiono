@@ -52,7 +52,7 @@ class HomeController {
         const teamMember = (await Main.query().where( w => {
             w.where('tipe', 'team-member')
             w.where('aktif', 'Y')
-        }).limit(4).orderBy('urut').fetch()).toJSON()
+        }).orderBy('urut').fetch()).toJSON()
         const gallery = (await Gallery.query().where( w => {
             w.where('aktif', 'Y')
         }).limit(6).orderBy('id', 'desc').fetch()).toJSON()
@@ -84,7 +84,7 @@ class HomeController {
             w.where('tipe', 'fakta-menarik-teks')
         }).last()).toJSON()
         const faktaMenarik = (await Main.query().where('tipe', 'fakta-menarik').limit(4).orderBy('urut').fetch()).toJSON()
-        const prestasi = (await Prestasi.query().where('aktif', 'Y').limit(4).fetch()).toJSON()
+        const prestasi = (await Prestasi.query().where('aktif', 'Y').fetch()).toJSON()
         const teamMember = (await Main.query().where( w => {
             w.where('tipe', 'team-member')
             w.where('aktif', 'Y')

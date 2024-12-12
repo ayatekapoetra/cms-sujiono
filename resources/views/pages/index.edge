@@ -262,20 +262,24 @@
             <div class="team-block col-lg-3 col-md-6 col-sm-12">
                <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                   <div class="image">
-                     <a href="#"><img src="{{v.photo}}" alt="" /></a>
+                     <a href="#">
+                        <img src="{{v.photo}}" alt="" style="height: 365px;width: 395px;"/>
+                     </a>
                   </div>
                   <div class="lower-content">
-                     <h3><a href="#">{{v.title}}</a></h3>
+                     <h3 style="font-size: medium;">
+                        <a href="#">{{v.title}}</a>
+                     </h3>
                      <div class="designation">{{v.subtitle}}</div>
                      <div class="overlay-box">
                         <div class="overlay-content">
-                        <div class="title">Contact info</div>
-                        <ul class="social-icons">
+                           <div class="title">Contact info</div>
                            <ul class="social-icons">
-                           <li><a href="#"><span class="fa fa-phone"></span></a></li>
-                           <li class="text-white">{{v.narasi}}</li>
-                        </ul>
-                        </ul>
+                              <ul class="social-icons">
+                                 <li><a href="#"><span class="fa fa-phone"></span></a></li>
+                                 <li class="text-white">{{v.narasi}}</li>
+                              </ul>
+                           </ul>
                         </div>
                      </div>
                   </div>
